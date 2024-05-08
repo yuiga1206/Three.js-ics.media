@@ -1,0 +1,19 @@
+@mixin cf{
+  zoom: 1;
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+@mixin anime {
+  animation-duration: 5s;
+  animation-timing-function: linear;
+  animation-delay: 0s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-fill-mode: none;
+}
+// 「@include anime;」に加え、
+// 「animation-name: 〇〇;」が必要。

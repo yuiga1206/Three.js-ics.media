@@ -1,0 +1,72 @@
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title><%- pageData['title'] %></title>
+    <% if (pageData['keywords']) { %>
+      <meta name="keywords" content="<%- pageData['keywords'] %>">
+    <% } %>
+    <% if (pageData['description']) { %>
+      <meta name="description" content="<%- pageData['description'] %>">
+    <% } %>
+    <%- '<base href="http://localhost:3000/">' %>
+    <%# '<base href="http://192.168.3.11:3000/">' %>
+
+
+    <!-- OGP -->
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="img/apple-touch-icon.png" sizes="180x180">
+    <% if (pageData['mySlug'] === 'top') { %>
+      <meta property="og:type" content="website">
+    <% } else { %>
+      <meta property="og:type" content="artcle">
+    <% } %>
+    <meta property="og:title" content="<%- pageData['title'] %>">
+    <% if (pageData['description']) { %>
+      <meta property="og:description" content="<%- pageData['description'] %>">
+    <% } %>
+    <meta property="og:site_name" content="">
+    <meta property="og:image" content="">
+    <meta property="og:url" content="<%- pageData['og:url'] %>">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:image" content="">
+    <meta name="twitter:title" content="<%- pageData['title'] %>">
+    <% if (pageData['description']) { %>
+      <meta name="twitter:description" content="<%- pageData['description'] %>">
+    <% } %>
+    <!-- OGP -->
+
+
+    <!-- ソース先読み -->
+    <link rel="preload" href="img/logo.png" as="image">
+
+    <link rel="preload" href="img/webp/mv.webp" as="image" media="(max-width: 767px)" type="image/webp">
+    <link rel="preload" href="img/mv.png" as="image" media="(max-width: 767px)">
+
+    <link rel="preload" href="css/style.css" as="style">
+
+    <link rel="preload" href="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js" as="script" crossorigin>
+    <link rel="preload" href="js/common.js" as="script">
+    <!-- ソース先読み -->
+
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script defer>
+      window.jQuery || document.write('<script src="js/jquery-3.4.1.min.js"><\/script>')
+    </script>
+
+
+    <!-- lazyload用 -->
+    <!-- intersection-observer.js & yall.min.js -->
+    <script src="js/lazy.min.js" defer></script>
+    <script defer>
+      document.addEventListener("DOMContentLoaded", function() {
+        yall({
+          observeChanges: true
+        });
+      });
+    </script>
+    <!-- lazyload用 -->
+  </head>
