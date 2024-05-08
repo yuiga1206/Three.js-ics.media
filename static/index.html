@@ -16,23 +16,27 @@
       const height = 540;
 
       // レンダラーを作成
-      const renderer = new THREE.WebGLRenderer({
+      const renderer = new THREE.WebGLRenderer({// 3D空間のレンダリングを行います。
         canvas: document.querySelector("#myCanvas"),
       });
       renderer.setPixelRatio(window.devicePixelRatio);
       renderer.setSize(width, height);
 
       // シーンを作成
-      const scene = new THREE.Scene();
+      const scene = new THREE.Scene();// 3Dの空間を表すクラス。3Dのオブジェクトはシーンにadd()メソッドを利用して追加することで表示できます。
 
       // カメラを作成
-      const camera = new THREE.PerspectiveCamera(45, width / height);
+      // new THREE.PerspectiveCamera(画角, アスペクト比
+      const camera = new THREE.PerspectiveCamera(45, width / height);// 3D空間を撮影するカメラ。視点を制御するために使用します。3D空間のどの視点で撮影しているのかの情報が必要となります。
       camera.position.set(0, 0, +1000);
 
       // 箱を作成
+      // new THREE.BoxGeometry(幅, 高さ, 奥行き)
       const geometry = new THREE.BoxGeometry(400, 400, 400);
       const material = new THREE.MeshNormalMaterial();
+      // new THREE.Mesh(ジオメトリ,マテリアル)
       const box = new THREE.Mesh(geometry, material);
+      // シーンに追加
       scene.add(box);
 
       tick();
@@ -42,7 +46,7 @@
         box.rotation.y += 0.01;
         renderer.render(scene, camera); // レンダリング
 
-        requestAnimationFrame(tick);
+        requestAnimationFrame(tick);// requestAnimationFrame()は引数として渡された関数を、毎フレーム実行します。
       }
     </script>
   </head>
